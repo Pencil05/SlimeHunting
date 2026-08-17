@@ -1,1 +1,1 @@
-{"name":"@slime-hunter/database","version":"0.0.0","type":"module","main":"dist/index.js","types":"dist/index.d.ts","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc --noEmit","test":"vitest run","lint":"echo lint-ok"}}
+{"name":"@slime-hunter/database","version":"0.0.0","type":"module","main":"dist/index.js","types":"dist/index.d.ts","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc --noEmit","test":"vitest run","lint":"echo lint-ok"},"dependencies":{"@slime-hunter/config":"workspace:*","postgres":"^3.4.9"},"devDependencies":{"@types/node":"^24.13.3"}}

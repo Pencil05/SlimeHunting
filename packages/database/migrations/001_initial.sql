@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS _slime_hunter_health_check (
+  id INTEGER PRIMARY KEY,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
