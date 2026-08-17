@@ -39,7 +39,20 @@ importers:
         specifier: ^24.13.3
         version: 24.13.3
 
-  apps/echo-worker: {}
+  apps/echo-worker:
+    dependencies:
+      '@slime-hunter/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@slime-hunter/database':
+        specifier: workspace:*
+        version: link:../../packages/database
+      '@slime-hunter/event-bus':
+        specifier: workspace:*
+        version: link:../../packages/event-bus
+      pino:
+        specifier: ^10.3.1
+        version: 10.3.1
 
   apps/realtime:
     dependencies:
@@ -90,7 +103,20 @@ importers:
         specifier: ^7.3.6
         version: 7.3.6(@types/node@24.13.3)
 
-  apps/world-worker: {}
+  apps/world-worker:
+    dependencies:
+      '@slime-hunter/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@slime-hunter/database':
+        specifier: workspace:*
+        version: link:../../packages/database
+      '@slime-hunter/event-bus':
+        specifier: workspace:*
+        version: link:../../packages/event-bus
+      pino:
+        specifier: ^10.3.1
+        version: 10.3.1
 
   packages/ai: {}
 
