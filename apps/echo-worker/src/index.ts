@@ -15,7 +15,10 @@ const shutdown = async (signal: string): Promise<void> => {
     logger.info({ worker: worker.name }, 'shutdown complete');
     process.exitCode = 0;
   } catch (error) {
-    logger.error({ worker: worker.name, error: error instanceof Error ? error.message : 'unknown error' }, 'shutdown failed');
+    logger.error(
+      { worker: worker.name, error: error instanceof Error ? error.message : 'unknown error' },
+      'shutdown failed',
+    );
     process.exitCode = 1;
   }
 };

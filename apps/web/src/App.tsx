@@ -12,7 +12,10 @@ export function App() {
         <div>
           <p className="eyebrow">SLIME HUNTER / P0.7</p>
           <h1>Technical web shell</h1>
-          <p className="shell__lede">A React control surface for infrastructure smoke checks and the authoritative foundation room.</p>
+          <p className="shell__lede">
+            A React control surface for infrastructure smoke checks and the authoritative foundation
+            room.
+          </p>
         </div>
         <span className="scope-tag">No gameplay yet</span>
       </header>

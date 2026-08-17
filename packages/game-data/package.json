@@ -1,1 +1,13 @@
-{"name":"@slime-hunter/game-data","version":"0.0.0","type":"module","main":"dist/index.js","types":"dist/index.d.ts","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc --noEmit","test":"vitest run","lint":"echo lint-ok"}}
+{
+  "name": "@slime-hunter/game-data",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "echo lint-ok"
+  }
+}

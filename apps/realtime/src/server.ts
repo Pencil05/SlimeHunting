@@ -14,9 +14,7 @@ export interface RealtimeServer {
   shutdown: () => Promise<void>;
 }
 
-export const createRealtimeServer = (
-  options: RealtimeServerOptions = {},
-): RealtimeServer => {
+export const createRealtimeServer = (options: RealtimeServerOptions = {}): RealtimeServer => {
   const runtimeConfig = options.config ?? config;
   const logger = options.logger ?? console;
   const server = new Server({
@@ -29,7 +27,9 @@ export const createRealtimeServer = (
     server,
     start: async () => {
       await server.listen(runtimeConfig.REALTIME_PORT, runtimeConfig.REALTIME_HOST);
-      logger.info(`realtime server listening on ${runtimeConfig.REALTIME_HOST}:${runtimeConfig.REALTIME_PORT}`);
+      logger.info(
+        `realtime server listening on ${runtimeConfig.REALTIME_HOST}:${runtimeConfig.REALTIME_PORT}`,
+      );
     },
     shutdown: async () => {
       await server.gracefullyShutdown(false);

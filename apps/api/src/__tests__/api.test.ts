@@ -96,7 +96,9 @@ describe('API smoke', () => {
   });
 
   it('returns 503 from /ready when Redis is unavailable', async () => {
-    const app = buildApp(createDependencies({ ok: true }, { ok: false, error: new Error('redis secret') }));
+    const app = buildApp(
+      createDependencies({ ok: true }, { ok: false, error: new Error('redis secret') }),
+    );
 
     try {
       const response = await app.inject({ method: 'GET', url: '/ready' });
@@ -112,7 +114,12 @@ describe('API smoke', () => {
   });
 
   it('does not expose infrastructure secrets in response bodies', async () => {
-    const app = buildApp(createDependencies({ ok: false, error: new Error('super-secret') }, { ok: false, error: new Error('super-secret') }));
+    const app = buildApp(
+      createDependencies(
+        { ok: false, error: new Error('super-secret') },
+        { ok: false, error: new Error('super-secret') },
+      ),
+    );
 
     try {
       const response = await app.inject({ method: 'GET', url: '/ready' });

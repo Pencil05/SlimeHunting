@@ -61,12 +61,15 @@ describe('FoundationRoom', () => {
 
     room.handlePing(client as never, { v: PROTOCOL_VERSION, timestamp: 42 });
 
-    expect(client.send).toHaveBeenCalledWith('pong', expect.objectContaining({
-      v: PROTOCOL_VERSION,
-      type: 'pong',
-      clientTimestamp: 42,
-      serverTimestamp: expect.any(Number),
-    }));
+    expect(client.send).toHaveBeenCalledWith(
+      'pong',
+      expect.objectContaining({
+        v: PROTOCOL_VERSION,
+        type: 'pong',
+        clientTimestamp: 42,
+        serverTimestamp: expect.any(Number),
+      }),
+    );
     expect(parseS2CMessage(client.send.mock.calls[0]?.[1])).toMatchObject({
       type: 'pong',
       clientTimestamp: 42,

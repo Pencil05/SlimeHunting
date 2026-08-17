@@ -1,12 +1,6 @@
 import type { FastifyInstance } from 'fastify';
-import {
-  type DatabaseClient,
-  type DatabaseHealth,
-} from '@slime-hunter/database';
-import {
-  type RedisClient,
-  type RedisHealth,
-} from '@slime-hunter/event-bus';
+import { type DatabaseClient, type DatabaseHealth } from '@slime-hunter/database';
+import { type RedisClient, type RedisHealth } from '@slime-hunter/event-bus';
 
 interface ReadyDependencies {
   database: DatabaseClient;

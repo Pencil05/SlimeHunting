@@ -37,9 +37,9 @@ describe('event bus baseline', () => {
   });
 
   it('rejects malformed event envelopes with clear errors', () => {
-    expect(() => validateEvent({ type: 'missing-id', timestamp: Date.now(), payload: {} })).toThrowError(
-      'Invalid event envelope: id is required',
-    );
+    expect(() =>
+      validateEvent({ type: 'missing-id', timestamp: Date.now(), payload: {} }),
+    ).toThrowError('Invalid event envelope: id is required');
     expect(() => deserializeEvent('{not-json')).toThrowError(
       'Invalid event envelope: payload is not valid JSON',
     );
@@ -58,10 +58,7 @@ describe('event bus baseline', () => {
     const client = { xadd, xread } as unknown as RedisClient;
     const event = createEvent('world.tick', { tick: 1 });
     xread.mockResolvedValue([
-      [
-        streamKey('world-events'),
-        [['1710000000000-0', ['event', serializeEvent(event)]]],
-      ],
+      [streamKey('world-events'), [['1710000000000-0', ['event', serializeEvent(event)]]]],
     ]);
 
     await expect(publishEvent(client, 'world-events', event)).resolves.toBe('1710000000000-0');

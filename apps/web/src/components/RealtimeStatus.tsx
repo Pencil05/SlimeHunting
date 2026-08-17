@@ -62,9 +62,12 @@ export function RealtimeStatus({ realtimeUrl }: RealtimeStatusProps) {
     }
   }, [realtimeUrl]);
 
-  useEffect(() => () => {
-    void room?.leave();
-  }, [room]);
+  useEffect(
+    () => () => {
+      void room?.leave();
+    },
+    [room],
+  );
 
   return (
     <section className="status-card" aria-labelledby="realtime-status-title">
@@ -76,16 +79,28 @@ export function RealtimeStatus({ realtimeUrl }: RealtimeStatusProps) {
         {sessionId ? `Session ${sessionId}` : 'No active room session'}
       </p>
       <div className="status-card__actions">
-        <button type="button" onClick={() => void connect()} disabled={status === 'connecting' || status === 'connected'}>
+        <button
+          type="button"
+          onClick={() => void connect()}
+          disabled={status === 'connecting' || status === 'connected'}
+        >
           Connect
         </button>
-        <button type="button" onClick={() => void disconnect()} disabled={status === 'disconnected'}>
+        <button
+          type="button"
+          onClick={() => void disconnect()}
+          disabled={status === 'disconnected'}
+        >
           Disconnect
         </button>
       </div>
       <div className="participant-list" aria-live="polite">
         <strong>Participants</strong>
-        {participants.length === 0 ? <span>None connected</span> : participants.map((participant) => <span key={participant}>{participant}</span>)}
+        {participants.length === 0 ? (
+          <span>None connected</span>
+        ) : (
+          participants.map((participant) => <span key={participant}>{participant}</span>)
+        )}
       </div>
     </section>
   );

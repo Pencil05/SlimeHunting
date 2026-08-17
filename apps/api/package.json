@@ -1,1 +1,23 @@
-{"name":"@slime-hunter/api","version":"0.0.0","type":"module","main":"dist/index.js","types":"dist/index.d.ts","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc --noEmit","test":"vitest run","lint":"echo lint-ok","dev":"echo dev-placeholder"},"dependencies":{"@slime-hunter/config":"workspace:*","@slime-hunter/database":"workspace:*","@slime-hunter/event-bus":"workspace:*","fastify":"^5.12.0"},"devDependencies":{"@types/node":"^24.13.3"}}
+{
+  "name": "@slime-hunter/api",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "echo lint-ok",
+    "dev": "echo dev-placeholder"
+  },
+  "dependencies": {
+    "@slime-hunter/config": "workspace:*",
+    "@slime-hunter/database": "workspace:*",
+    "@slime-hunter/event-bus": "workspace:*",
+    "fastify": "^5.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3"
+  }
+}

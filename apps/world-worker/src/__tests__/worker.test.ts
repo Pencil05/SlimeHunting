@@ -49,7 +49,10 @@ describe('world-worker lifecycle', () => {
 
   it('fails safely and disconnects partially initialized infrastructure', async () => {
     const adapters = healthyAdapters({
-      checkDatabaseHealth: vi.fn(async () => ({ ok: false, error: new Error('database unavailable') })),
+      checkDatabaseHealth: vi.fn(async () => ({
+        ok: false,
+        error: new Error('database unavailable'),
+      })),
     });
     const worker = createWorldWorker({ adapters, logger: pino({ enabled: false }) });
 

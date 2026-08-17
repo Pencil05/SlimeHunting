@@ -68,10 +68,7 @@ export const buildApp = (dependencies: AppDependencies = {}): ApiApp => {
   });
 
   app.addHook('onClose', async () => {
-    await Promise.all([
-      closeDatabase(infrastructure.database),
-      closeRedis(infrastructure.redis),
-    ]);
+    await Promise.all([closeDatabase(infrastructure.database), closeRedis(infrastructure.redis)]);
   });
 
   return app;

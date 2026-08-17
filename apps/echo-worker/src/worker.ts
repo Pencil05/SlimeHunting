@@ -48,7 +48,9 @@ const defaultAdapters: WorkerAdapters = {
 
 const safeErrorMessage = (error: unknown): string => {
   if (error instanceof Error && error.message.length > 0) {
-    return error.message.replace(/postgres(?:ql)?:\/\/[^\s]+/gi, '[redacted]').replace(/redis:\/\/[^\s]+/gi, '[redacted]');
+    return error.message
+      .replace(/postgres(?:ql)?:\/\/[^\s]+/gi, '[redacted]')
+      .replace(/redis:\/\/[^\s]+/gi, '[redacted]');
   }
   return 'unknown infrastructure error';
 };
@@ -87,7 +89,10 @@ export const createEchoWorker = (options: WorkerOptions = {}): Worker => {
         ]);
         redis = undefined;
         database = undefined;
-        logger.error({ worker: workerName, error: safeErrorMessage(error) }, 'worker startup failed');
+        logger.error(
+          { worker: workerName, error: safeErrorMessage(error) },
+          'worker startup failed',
+        );
         throw new Error(`${workerName} startup failed`, { cause: error });
       }
     },

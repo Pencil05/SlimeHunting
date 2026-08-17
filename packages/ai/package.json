@@ -1,1 +1,6 @@
-{"name":"@slime-hunter/ai","version":"0.0.0","type":"module","private":true}
+{
+  "name": "@slime-hunter/ai",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true
+}

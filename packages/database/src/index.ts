@@ -10,9 +10,7 @@ export interface MigrationFile {
   path: string;
 }
 
-export type DatabaseHealth =
-  | { ok: true }
-  | { ok: false; error: unknown };
+export type DatabaseHealth = { ok: true } | { ok: false; error: unknown };
 
 const migrationNamePattern = /^\d+_[a-z0-9_-]+\.sql$/;
 
@@ -52,9 +50,7 @@ export const disconnectDatabase = async (database: DatabaseClient): Promise<void
   await database.end({ timeout: 5 });
 };
 
-export const checkDatabaseHealth = async (
-  database: DatabaseClient,
-): Promise<DatabaseHealth> => {
+export const checkDatabaseHealth = async (database: DatabaseClient): Promise<DatabaseHealth> => {
   try {
     await database`SELECT 1`;
     return { ok: true };
@@ -75,9 +71,7 @@ export const discoverMigrations = async (directory: string): Promise<MigrationFi
     }));
 };
 
-const defaultMigrationsDirectory = fileURLToPath(
-  new URL('../migrations/', import.meta.url),
-);
+const defaultMigrationsDirectory = fileURLToPath(new URL('../migrations/', import.meta.url));
 
 export const runMigrations = async (
   database: DatabaseClient,
@@ -106,10 +100,9 @@ export const runMigrations = async (
     const sql = await readFile(migration.path, 'utf8');
     await database.begin(async (transaction) => {
       await transaction.unsafe(sql);
-      await transaction.unsafe(
-        'INSERT INTO _slime_hunter_migrations (name) VALUES ($1)',
-        [migration.name],
-      );
+      await transaction.unsafe('INSERT INTO _slime_hunter_migrations (name) VALUES ($1)', [
+        migration.name,
+      ]);
     });
     newlyApplied.push(migration.name);
   }

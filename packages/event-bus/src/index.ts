@@ -17,9 +17,7 @@ export interface ConsumedEvent<T = unknown> {
 
 export type RedisClient = RedisClientType;
 
-export type RedisHealth =
-  | { ok: true }
-  | { ok: false; error: unknown };
+export type RedisHealth = { ok: true } | { ok: false; error: unknown };
 
 export interface ConsumeOptions {
   lastId?: string;
@@ -83,7 +81,11 @@ export const validateEvent = <T>(value: unknown): EventEnvelope<T> => {
     throw new Error('Invalid event envelope: timestamp must be a finite number');
   }
   if ('metadata' in candidate && candidate.metadata !== undefined) {
-    if (typeof candidate.metadata !== 'object' || candidate.metadata === null || Array.isArray(candidate.metadata)) {
+    if (
+      typeof candidate.metadata !== 'object' ||
+      candidate.metadata === null ||
+      Array.isArray(candidate.metadata)
+    ) {
       throw new Error('Invalid event envelope: metadata must be an object');
     }
   }
@@ -165,9 +167,10 @@ export const consumeEvents = async <T>(
   const key = streamKey(stream);
   const lastId = options.lastId ?? '0-0';
   const count = options.count ?? 10;
-  const result = options.blockMs === undefined
-    ? await client.xread('COUNT', count, 'STREAMS', key, lastId)
-    : await client.xread('COUNT', count, 'BLOCK', options.blockMs, 'STREAMS', key, lastId);
+  const result =
+    options.blockMs === undefined
+      ? await client.xread('COUNT', count, 'STREAMS', key, lastId)
+      : await client.xread('COUNT', count, 'BLOCK', options.blockMs, 'STREAMS', key, lastId);
 
   if (!result) {
     return [];

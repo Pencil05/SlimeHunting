@@ -40,7 +40,9 @@ export function ApiStatus({ apiUrl }: ApiStatusProps) {
         <h2 id="api-status-title">API status</h2>
         <span className={`status-pill status-pill--${status}`}>{status}</span>
       </div>
-      <p className="status-card__detail">Polling <code>/health</code> every 10 seconds.</p>
+      <p className="status-card__detail">
+        Polling <code>/health</code> every 10 seconds.
+      </p>
     </section>
   );
 }

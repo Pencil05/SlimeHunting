@@ -10,10 +10,12 @@ describe('web runtime configuration', () => {
   });
 
   it('uses Vite environment values when supplied', () => {
-    expect(getWebRuntimeConfig({
-      VITE_API_URL: 'https://api.example.test',
-      VITE_REALTIME_URL: 'wss://realtime.example.test',
-    })).toEqual({
+    expect(
+      getWebRuntimeConfig({
+        VITE_API_URL: 'https://api.example.test',
+        VITE_REALTIME_URL: 'wss://realtime.example.test',
+      }),
+    ).toEqual({
       apiUrl: 'https://api.example.test',
       realtimeUrl: 'wss://realtime.example.test',
     });

@@ -1,1 +1,17 @@
-{"name":"@slime-hunter/event-bus","version":"0.0.0","type":"module","main":"dist/index.js","types":"dist/index.d.ts","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc --noEmit","test":"vitest run","lint":"echo lint-ok"},"dependencies":{"@slime-hunter/config":"workspace:*","ioredis":"^5.11.1"}}
+{
+  "name": "@slime-hunter/event-bus",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "echo lint-ok"
+  },
+  "dependencies": {
+    "@slime-hunter/config": "workspace:*",
+    "ioredis": "^5.11.1"
+  }
+}

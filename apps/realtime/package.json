@@ -1,1 +1,21 @@
-{"name":"@slime-hunter/realtime","version":"0.0.0","type":"module","main":"dist/index.js","types":"dist/index.d.ts","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc --noEmit","test":"vitest run","lint":"echo lint-ok","dev":"echo dev-placeholder"},"dependencies":{"@colyseus/schema":"^3.0.76","@colyseus/ws-transport":"^0.17.13","@slime-hunter/config":"workspace:*","@slime-hunter/network-protocol":"workspace:*","colyseus":"^0.17.10"}}
+{
+  "name": "@slime-hunter/realtime",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "echo lint-ok",
+    "dev": "echo dev-placeholder"
+  },
+  "dependencies": {
+    "@colyseus/schema": "^3.0.76",
+    "@colyseus/ws-transport": "^0.17.13",
+    "@slime-hunter/config": "workspace:*",
+    "@slime-hunter/network-protocol": "workspace:*",
+    "colyseus": "^0.17.10"
+  }
+}

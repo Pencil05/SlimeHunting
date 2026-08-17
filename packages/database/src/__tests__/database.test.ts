@@ -16,7 +16,8 @@ vi.stubEnv('VITE_REALTIME_URL', 'ws://localhost:4001');
 vi.stubEnv('DATABASE_URL', 'postgresql://slime_hunter:slime_hunter@localhost:5432/slime_hunter');
 vi.stubEnv('REDIS_URL', 'redis://localhost:6379');
 
-const { checkDatabaseHealth, discoverMigrations, parseDatabaseUrl, runMigrations } = await import('../index.js');
+const { checkDatabaseHealth, discoverMigrations, parseDatabaseUrl, runMigrations } =
+  await import('../index.js');
 
 describe('database baseline', () => {
   it('parses PostgreSQL DATABASE_URL values', () => {
@@ -60,8 +61,9 @@ describe('database baseline', () => {
     const transactionUnsafe = vi.fn().mockResolvedValue(undefined);
     const database = {
       unsafe: vi.fn().mockResolvedValueOnce([]).mockResolvedValueOnce([]),
-      begin: vi.fn(async (callback: (transaction: { unsafe: typeof transactionUnsafe }) => Promise<void>) =>
-        callback({ unsafe: transactionUnsafe }),
+      begin: vi.fn(
+        async (callback: (transaction: { unsafe: typeof transactionUnsafe }) => Promise<void>) =>
+          callback({ unsafe: transactionUnsafe }),
       ),
     } as unknown as DatabaseClient;
 

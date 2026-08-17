@@ -1,10 +1,5 @@
 export { PROTOCOL_VERSION, type ProtocolVersion } from './version.js';
-export {
-  c2sMessageSchema,
-  pingSchema,
-  type C2SMessage,
-  type PingMessage,
-} from './c2s.js';
+export { c2sMessageSchema, pingSchema, type C2SMessage, type PingMessage } from './c2s.js';
 export {
   errorSchema,
   playerJoinedSchema,
